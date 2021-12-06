@@ -3,6 +3,13 @@
 @import "fonts/verdana.css";
 @import "fonts/ravie.css";
 
+:root {
+  --cor-do-fundo-baixo: #4599b2;
+  --cor-do-fundo-topo: #f6f1b2;
+  --cor-da-letra: black;
+  /* ... */
+}
+
 body {
   background-color: #fff;
   font-family: 'verdana', sans-serif;
@@ -18,7 +25,7 @@ strong {
 }
 
 #recipiente {
-  background-image: linear-gradient(to bottom, #f6f1b2, #4599b2 80%);
+  background-image: linear-gradient(to bottom ,var(--cor-do-fundo-topo) ,var(--cor-do-fundo-baixo) 80%);
   border-left: 1px solid #d3d3d3;
   border-right: 1px solid #d3d3d3;
 }
@@ -32,13 +39,13 @@ strong {
 
 #cardapio h3 {
   font-size: 18px;
-  color: #333;
+  color: var(--cor-da-letra);
   margin-top: 30px;
 }
 
 #cardapio article {
   font-size: 14px;
-  color: #333;
+  color: var(--cor-da-letra);
 }
 
 
@@ -112,7 +119,7 @@ padding: 10px;
 article {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  line-height: 2em;
 }
 
 
@@ -171,3 +178,11 @@ article {
 /* coloque aqui a media query para sobrescrever o valor
    das custom properties para o modo escuro */
 
+   @media (prefers-color-scheme: dark) {
+    :root {
+      --cor-da-letra: rgb(235, 220, 220);
+      --cor-do-fundo-baixo: #2a4047;
+      --cor-do-fundo-topo: #11607c;
+      /* ... */
+    }
+  }
